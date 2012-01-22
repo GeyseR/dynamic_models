@@ -1,0 +1,13 @@
+﻿users2:
+    title: Пользователи
+    fields:
+        - {id: name, title: Имя, type: char}
+        - {id: paycheck, title: Зарплата, type: int}
+
+rooms1:
+    title: Комнаты
+    fields:
+        - {id: department, title: Отдел, type: char}
+        - {id: spots, title: Вместимость, type: int}
+        - {id: spots3, title: Время1, type: date}
+        - {id: spots2, title: Время2, type: datetime}

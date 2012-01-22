@@ -1,0 +1,18 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+{% for model in models %}
+    <a href="{% url get_model_items model.0 %}">{{ model.1 }}</a>
+{% endfor %}
+<br />
+{{ model_name }}
+
+{% for field in fields %}
+    {{ field }}
+{% endfor %}
+</body>
+</html>
