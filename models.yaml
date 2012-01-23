@@ -9,5 +9,10 @@ rooms1:
     fields:
         - {id: department, title: Отдел, type: char}
         - {id: spots, title: Вместимость, type: int}
-        - {id: spots3, title: Время1, type: date}
-        - {id: spots2, title: Время2, type: datetime}
+        - {id: date_repair, title: Дата ремонта, type: date}
+        - {id: daily_open_time, title: Ежедневное время открытия, type: time}
+
+some_MoDeL:
+    title: Моя модель
+    fields:
+        - {id: value, title: Значение, type: int}

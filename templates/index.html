@@ -1,17 +1,48 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/page.css"/>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.1.6.2.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/core.js"></script>
+    <title>Dynamic models</title>
 </head>
 <body>
-{% for model in models %}
-    <a href="{% url get_model_items model.0 %}">{{ model.1 }}</a>
-{% endfor %}
-<br/>
-{{ model_name }}
 
-{% for field in fields %}
-    {{ field }}
-{% endfor %}
+{% if user.is_staff %}
+    <a href="/admin/">Admin interface</a>
+    <form method="post" action="{% url load_scheme %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="send" />
+    </form>
+{% endif %}
+
+<div>
+<table id="models">
+    <th>Модели</th>
+    {% for model in models %}
+        <tr>
+            <td><a href="{% url get_model_items model.0 %}" class="model">{{ model.1 }}</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% if fields %}
+    <table id="data">
+        <tr>
+            {% for field in fields %}
+                <th>{{ field.2 }}</th>
+            {% endfor %}
+        </tr>
+        {% for item in items %}
+            <tr class="item">
+                {% for val in item %}
+                    <td>{{ val }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+</div>
 </body>
 </html>
