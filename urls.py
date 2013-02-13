@@ -12,9 +12,6 @@ creator = ModelsCreator(stream)
 creator.create_models()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'dynamic_models.views.home', name='home'),
-    
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^$', 'core.views.index', name='index'),
