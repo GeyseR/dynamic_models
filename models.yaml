@@ -16,3 +16,4 @@ some_MoDeL:
     title: Моя модель
     fields:
         - {id: value, title: Значение, type: int}
+
